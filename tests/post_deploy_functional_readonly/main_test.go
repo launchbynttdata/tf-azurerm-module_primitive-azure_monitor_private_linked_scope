@@ -33,5 +33,5 @@ func TestMonitorPrivateLinkScopeModule(t *testing.T) {
 		SetTestConfigFileName(infraTFVarFileNameDefault).
 		Build()
 
-	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestComposableComplete)
+	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestMonitorPrivateLinkScoped)
 }
