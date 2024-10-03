@@ -10,9 +10,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+output "resource_group_name" {
+  value = azurerm_monitor_private_link_scope.ampls.resource_group_name
+}
+
 output "private_link_scope_id" {
   value = azurerm_monitor_private_link_scope.ampls.id
 }
+
+output "private_link_scope_name" {
+  value = azurerm_monitor_private_link_scope.ampls.name
+}
+
 
 output "private_link_scoped_service_ids" {
   value = toset([
