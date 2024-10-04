@@ -108,14 +108,14 @@ If `make check` target is successful, developer is good to commit the code to pr
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0, <= 1.5.5 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.67 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.77 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.116.0 |
 
 ## Modules
 
@@ -141,6 +141,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | n/a |
 | <a name="output_private_link_scope_id"></a> [private\_link\_scope\_id](#output\_private\_link\_scope\_id) | n/a |
+| <a name="output_private_link_scope_name"></a> [private\_link\_scope\_name](#output\_private\_link\_scope\_name) | n/a |
 | <a name="output_private_link_scoped_service_ids"></a> [private\_link\_scoped\_service\_ids](#output\_private\_link\_scoped\_service\_ids) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
