@@ -25,12 +25,6 @@ func TestMonitorPrivateLinkScoped(t *testing.T, ctx types.TestContext) {
 		t.Fatalf("Unable to get credentials: %v\n", err)
 	}
 
-	t.Run("TestMonitorPrivateLinkScopedId", func(t *testing.T) {
-		checkMonitorPrivateLinkScopedId(t, ctx, subscriptionId, cred)
-	})
-}
-
-func checkMonitorPrivateLinkScopedId(t *testing.T, ctx types.TestContext, subscriptionId string, cred *azidentity.DefaultAzureCredential) {
 	resourceGroupName := terraform.Output(t, ctx.TerratestTerraformOptions(), "resource_group_name")
 	privateLinkScopeName := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_link_scope_name")
 	privateLinkScopeId := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_link_scope_id")
@@ -42,7 +36,23 @@ func checkMonitorPrivateLinkScopedId(t *testing.T, ctx types.TestContext, subscr
 		log.Fatalf("Failed to get the Private Link Scope: %v", err)
 	}
 
-	assert.Equal(t, strings.ToLower(privateLinkScopeId), strings.ToLower(*privateLinkScope.ID), "Private Link Scope ID does not match")
+	t.Run("TestMonitorPrivateLinkScopedId", func(t *testing.T) {
+		assert.Equal(t, strings.ToLower(privateLinkScopeId), strings.ToLower(*privateLinkScope.ID), "Private Link Scope ID does not match")
+	})
+
+	t.Run("TestOpenIngestionAndQuery", func(t *testing.T) {
+		ctx.EnabledOnlyForTests(t, "with_app_insights")
+
+		assert.Equal(t, armmonitor.AccessModeOpen, *privateLinkScope.Properties.AccessModeSettings.IngestionAccessMode, "Ingestion Access Mode is not Open")
+		assert.Equal(t, armmonitor.AccessModeOpen, *privateLinkScope.Properties.AccessModeSettings.QueryAccessMode, "Query Access Mode is not Open")
+	})
+
+	t.Run("TestPrivateIngestionAndQuery", func(t *testing.T) {
+		ctx.EnabledOnlyForTests(t, "with_no_resources")
+
+		assert.Equal(t, armmonitor.AccessModePrivateOnly, *privateLinkScope.Properties.AccessModeSettings.IngestionAccessMode, "Ingestion Access Mode is not PrivateOnly")
+		assert.Equal(t, armmonitor.AccessModePrivateOnly, *privateLinkScope.Properties.AccessModeSettings.QueryAccessMode, "Query Access Mode is not PrivateOnly")
+	})
 }
 
 func getPrivateLinkScopesClient(t *testing.T, subscriptionId string, cred *azidentity.DefaultAzureCredential) *armmonitor.PrivateLinkScopesClient {

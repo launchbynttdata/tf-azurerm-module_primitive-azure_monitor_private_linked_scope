@@ -37,6 +37,8 @@ No resources.
 | <a name="input_class_env"></a> [class\_env](#input\_class\_env) | (Required) Environment where resource is going to be deployed. For example. dev, qa, uat | `string` | `"dev"` | no |
 | <a name="input_location"></a> [location](#input\_location) | target resource group resource mask | `string` | `"eastus"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Custom tags for the Redis cache | `map(string)` | `{}` | no |
+| <a name="input_ingestion_access_mode"></a> [ingestion\_access\_mode](#input\_ingestion\_access\_mode) | The ingestion access mode for the Azure Monitor Private Link Scope. | `string` | `null` | no |
+| <a name="input_query_access_mode"></a> [query\_access\_mode](#input\_query\_access\_mode) | The query access mode for the Azure Monitor Private Link Scope. | `string` | `null` | no |
 
 ## Outputs
 
