@@ -135,7 +135,7 @@ No modules.
 | <a name="input_name"></a> [name](#input\_name) | Name of the Private Link Scope | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource group name | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Custom tags for the Private Link Scope | `map(string)` | `{}` | no |
-| <a name="input_linked_resource_ids"></a> [linked\_resource\_ids](#input\_linked\_resource\_ids) | Map of resources to associate with the Private Link Scope | `map(string)` | n/a | yes |
+| <a name="input_linked_resource_ids"></a> [linked\_resource\_ids](#input\_linked\_resource\_ids) | Map of resources to associate with the Private Link Scope | `map(string)` | `{}` | no |
 
 ## Outputs
 
