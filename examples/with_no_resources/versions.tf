@@ -10,27 +10,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-# COMMON
-variable "name" {
-  description = "Name of the Private Link Scope"
-  type        = string
-}
+terraform {
+  required_version = "~> 1.0"
 
-variable "resource_group_name" {
-  description = "Resource group name"
-  type        = string
-}
-
-variable "tags" {
-  description = "Custom tags for the Private Link Scope"
-  type        = map(string)
-  default     = {}
-}
-
-# Private Link Scope inputs
-
-variable "linked_resource_ids" {
-  description = "Map of resources to associate with the Private Link Scope"
-  type        = map(string)
-  default     = {}
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.77"
+    }
+  }
 }
