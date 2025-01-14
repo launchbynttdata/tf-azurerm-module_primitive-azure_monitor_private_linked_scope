@@ -52,8 +52,10 @@ module "application_insights" {
 module "monitor_private_link_scope" {
   source = "../../"
 
-  name                = module.resource_names["monitor_private_link_scope"].minimal_random_suffix
-  resource_group_name = module.resource_group.name
+  name                  = module.resource_names["monitor_private_link_scope"].minimal_random_suffix
+  resource_group_name   = module.resource_group.name
+  ingestion_access_mode = var.ingestion_access_mode
+  query_access_mode     = var.query_access_mode
 
   tags = merge(var.tags, { resource_name = module.resource_names["monitor_private_link_scope"].standard })
 

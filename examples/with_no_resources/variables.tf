@@ -112,3 +112,15 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "ingestion_access_mode" {
+  description = "The ingestion access mode for the Azure Monitor Private Link Scope."
+  type        = string
+  default     = null
+}
+
+variable "query_access_mode" {
+  description = "The query access mode for the Azure Monitor Private Link Scope."
+  type        = string
+  default     = null
+}

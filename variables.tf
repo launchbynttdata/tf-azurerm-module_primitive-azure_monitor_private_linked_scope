@@ -21,6 +21,18 @@ variable "resource_group_name" {
   type        = string
 }
 
+variable "ingestion_access_mode" {
+  description = "The ingestion access mode for the Azure Monitor Private Link Scope."
+  type        = string
+  default     = null
+}
+
+variable "query_access_mode" {
+  description = "The query access mode for the Azure Monitor Private Link Scope."
+  type        = string
+  default     = null
+}
+
 variable "tags" {
   description = "Custom tags for the Private Link Scope"
   type        = map(string)
